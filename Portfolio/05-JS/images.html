@@ -1,23 +1,24 @@
-<!DOCTYPE html>
-<html>
+<style>
+  #myImg { position: absolute; top: 100px; left: 100px; width: 100px; }
+</style>
+<img id="myImg" src="https://via.placeholder.com/100">
+<br>
+<button onclick="move('up')">⬆️</button>
+<button onclick="move('down')">⬇️</button>
+<button onclick="move('left')">⬅️</button>
+<button onclick="move('right')">➡️</button>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Exercise - Images</title>
-    <script type="text/javascript" src="js/images.js"></script>
-</head>
-
-<body onload="startGame()">
-    <h1>Image manipulation</h1>
-    <hr />
-    <p>Control the image by using the controls in the screen</p>
-    <br /><button onclick="moveup()">^</button>
-    <br /><button onclick="moveleft()">
-        < </button>
-            <button onclick="moveright()">></button>
-            <br /><button onclick="movedown()">v</button>
-</body>
-
-</html>
+<script>
+  let topPos = 100, leftPos = 100;
+  const step = 20;
+  function move(dir) {
+    const img = document.getElementById("myImg");
+    const vw = window.innerWidth, vh = window.innerHeight;
+    if (dir === 'up' && topPos > 0) topPos -= step;
+    if (dir === 'down' && topPos + img.height < vh) topPos += step;
+    if (dir === 'left' && leftPos > 0) leftPos -= step;
+    if (dir === 'right' && leftPos + img.width < vw) leftPos += step;
+    img.style.top = topPos + 'px';
+    img.style.left = leftPos + 'px';
+  }
+</script>
