@@ -1,16 +1,26 @@
-<input id="primeInput" type="number" placeholder="Enter number">
-<button onclick="nextPrime()">Next Prime</button>
-<span id="nextPrimeResult"></span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prime Factors</title>
+</head>
+<body>
+  <h2>Prime Factorization</h2>
+  <input id="num" type="number" placeholder="Enter number">
+  <button onclick="getPrimeFactors()">Get Factors</button>
+  <p>Prime Factors: <span id="pf"></span></p>
 
-<script>
-function isPrime(num) {
-  if (num < 2) return false;
-  for (let i = 2; i <= Math.sqrt(num); i++) if (num % i === 0) return false;
-  return true;
-}
-function nextPrime() {
-  let n = parseInt(document.getElementById("primeInput").value) + 1;
-  while (!isPrime(n)) n++;
-  document.getElementById("nextPrimeResult").textContent = n;
-}
-</script>
+  <script>
+    function getPrimeFactors() {
+      let n = parseInt(document.getElementById("num").value);
+      const factors = [];
+      while (n % 2 === 0) { factors.push(2); n /= 2; }
+      for (let i = 3; i <= Math.sqrt(n); i += 2) {
+        while (n % i === 0) { factors.push(i); n /= i; }
+      }
+      if (n > 2) factors.push(n);
+      document.getElementById("pf").textContent = factors.join(", ");
+    }
+  </script>
+</body>
+</html>
