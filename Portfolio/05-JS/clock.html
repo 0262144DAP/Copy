@@ -1,10 +1,24 @@
-<div id="clock"></div>
-<script>
-  function updateClock() {
-    const now = new Date();
-    const time = now.toLocaleTimeString();
-    document.getElementById("clock").textContent = time;
-  }
-  setInterval(updateClock, 1000);
-  updateClock();
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clock</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 50px; }
+    #clock { font-size: 3em; color: #0077ff; }
+  </style>
+</head>
+<body>
+  <h1>Digital Clock</h1>
+  <div id="clock"></div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      document.getElementById("clock").textContent = now.toLocaleTimeString();
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
