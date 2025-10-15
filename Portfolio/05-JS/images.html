@@ -1,24 +1,43 @@
-<style>
-  #myImg { position: absolute; top: 100px; left: 100px; width: 100px; }
-</style>
-<img id="myImg" src="https://via.placeholder.com/100">
-<br>
-<button onclick="move('up')">⬆️</button>
-<button onclick="move('down')">⬇️</button>
-<button onclick="move('left')">⬅️</button>
-<button onclick="move('right')">➡️</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Move Image</title>
+  <style>
+    #myImg {
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      width: 100px;
+      transition: all 0.1s;
+    }
+    button { margin: 5px; }
+  </style>
+</head>
+<body>
+  <h2>Move the Image</h2>
+  <img id="myImg" src="https://via.placeholder.com/100" alt="image">
+  <div>
+    <button onclick="move('up')">⬆️</button><br>
+    <button onclick="move('left')">⬅️</button>
+    <button onclick="move('down')">⬇️</button>
+    <button onclick="move('right')">➡️</button>
+  </div>
 
-<script>
-  let topPos = 100, leftPos = 100;
-  const step = 20;
-  function move(dir) {
-    const img = document.getElementById("myImg");
-    const vw = window.innerWidth, vh = window.innerHeight;
-    if (dir === 'up' && topPos > 0) topPos -= step;
-    if (dir === 'down' && topPos + img.height < vh) topPos += step;
-    if (dir === 'left' && leftPos > 0) leftPos -= step;
-    if (dir === 'right' && leftPos + img.width < vw) leftPos += step;
-    img.style.top = topPos + 'px';
-    img.style.left = leftPos + 'px';
-  }
-</script>
+  <script>
+    let topPos = 100, leftPos = 100;
+    const step = 20;
+
+    function move(dir) {
+      const img = document.getElementById("myImg");
+      const vw = window.innerWidth, vh = window.innerHeight;
+      if (dir === 'up' && topPos > 0) topPos -= step;
+      if (dir === 'down' && topPos + img.height < vh) topPos += step;
+      if (dir === 'left' && leftPos > 0) leftPos -= step;
+      if (dir === 'right' && leftPos + img.width < vw) leftPos += step;
+      img.style.top = topPos + 'px';
+      img.style.left = leftPos + 'px';
+    }
+  </script>
+</body>
+</html>
