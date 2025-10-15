@@ -1,17 +1,27 @@
-<input id="pigInput" placeholder="Enter word">
-<button onclick="toPigLatin()">Convert</button>
-<span id="pigResult"></span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pig Latin</title>
+</head>
+<body>
+  <h2>Pig Latin Converter</h2>
+  <input id="pigInput" placeholder="Enter word">
+  <button onclick="toPigLatin()">Convert</button>
+  <p>Result: <span id="pigResult"></span></p>
 
-<script>
-function toPigLatin() {
-  const word = document.getElementById("pigInput").value.toLowerCase();
-  const vowels = ['a','e','i','o','u'];
-  if (vowels.includes(word[0])) {
-    document.getElementById("pigResult").textContent = word + "way";
-  } else {
-    const index = word.split('').findIndex(l => vowels.includes(l));
-    const pig = word.slice(index) + word.slice(0, index) + "ay";
-    document.getElementById("pigResult").textContent = pig;
-  }
-}
-</script>
+  <script>
+    function toPigLatin() {
+      const word = document.getElementById("pigInput").value.toLowerCase();
+      const vowels = ['a','e','i','o','u'];
+      if (vowels.includes(word[0])) {
+        document.getElementById("pigResult").textContent = word + "way";
+      } else {
+        const index = word.split('').findIndex(l => vowels.includes(l));
+        const pig = word.slice(index) + word.slice(0, index) + "ay";
+        document.getElementById("pigResult").textContent = pig;
+      }
+    }
+  </script>
+</body>
+</html>
