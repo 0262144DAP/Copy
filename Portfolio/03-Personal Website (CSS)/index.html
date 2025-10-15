@@ -1,12 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personal Website - CSS</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DAP - Personal Profile</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+
+  <nav>
+    <div class="logo">PROFILE</div>
+    <div class="nav-items">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#hobbies">Hobbies</a>
+      <a href="#heroes">Heroes</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#contact">Contact</a>
+      
+      <a href="destination.html" title="My Favorite Spots">My Favorite Spots</a>
+    
+      <a href="destination.html#spot-1">Spot 1</a>
+      <a href="destination.html#spot-2">Spot 2</a>
+      <a href="destination.html#spot-3">Spot 3</a>
+      <a href="destination.html#spot-4">Spot 4</a>
+      <a href="destination.html#spot-5">Spot 5</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-container">
+
+      <table style="width:100%; border-collapse:collapse;">
+        <tr>
+          <td style="width:220px; vertical-align:top; padding:10px; text-align:center;">
+           
+            <img src="DiegoArias.jpeg" alt="Diego Arias" style="max-width:200px; border-radius:8px;"/>
+          </td>
+          <td style="vertical-align:top; padding:10px;">
+            <h1 style="margin:0;">Diego Arias</h1>
+            <p style="margin:6px 0;"><strong>Digital Animator / Photographer / Musician</strong></p>
+            <p style="margin:6px 0;"><strong>Address:</strong> Guadalajara, Jalisco, México <!-- TODO: ajusta tu dirección --></p>
+            <button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">About Me</button>
+          </td>
+        </tr>
+      </table>
+     
+      <div class="colum-right" style="margin-top:16px;">
+        <img src="Piano.jpg" alt="my work" class="my-work" style="max-width:100%; height:auto;"/>
+      </div>
+    </div>
+  </section>
+
+  <hr/>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I want to be known as a creative and passionate person who uses art and technology to inspire others.</p>
+
+    <blockquote>
+      "Creativity takes courage." — Henri Matisse
+    </blockquote>
+
+    <h2>Background</h2>
+    <p>I have a strong background in digital arts, animation, and music. My main goal in life as a professional is to create meaningful content that connects emotionally with people and leaves a positive impact.</p>
+
+    <h3>Education</h3>
+    <ul>
+      <li>
+       
+        <a href="#" target="_blank" title="Kindergarden Netherland Homepage">
+          <img src="logos/kindergarden-netherland.png" alt="Anáhuac Chapalita Logo" style="height:22px; vertical-align:middle; margin-right:8px;"/>
+        </a>
+        <em>2008 - 2011</em> — 
+        <a href="#" target="_blank"><strong>Anáhuac Chapalita</strong></a>
+      </li>
+      <li>
+        <a href="#" target="_blank" title="Anáhuac Chapalita Homepage">
+          <img src="logos/anahuac-chapalita.png" alt="Subiré Logo" style="height:22px; vertical-align:middle; margin-right:8px;"/>
+        </a>
+        <em>2011 - 2014</em> — 
+        <a href="#" target="_blank"><strong>Subiré</strong></a>
+      </li>
+      <li>
+        <a href="#" target="_blank" title="Subiré Homepage">
+          <img src="logos/subire.png" alt="Subiré Logo" style="height:22px; vertical-align:middle; margin-right:8px;"/>
+        </a>
+        <em>2014 - 2017</em> — 
+        <a href="#" target="_blank"><strong>Subiré</strong></a>
+      </li>
+      <li>
+        <a href="#" target="_blank" title="Universidad Panamericana Homepage">
+          <img src="logos/up.png" alt="Universidad Panamericana Logo" style="height:22px; vertical-align:middle; margin-right:8px;"/>
+        </a>
+        <em>2017 - 2021</em> — 
+        <a href="#" target="_blank"><strong>Universidad Panamericana</strong></a>
+      </li>
+    </ul>
+
+    <h3>Skills</h3>
+    <ol>
+      <li>Animation — 90%</li>
+      <li>Drawing — 85%</li>
+      <li>Pianist — 80%</li>
+      <li>Photography — 75%</li>
+      <li>Video Editing — 70%</li>
+    </ol>
+  </section>
+
+  <hr/>
+
+  <section id="hobbies">
+    <h2>Hobbies</h2>
+
+    <h3>Favorite Food</h3>
+    <p><strong>Top 5 Cuisines:</strong></p>
+    <ol>
+      <li>Mexican</li>
+      <li>Italian</li>
+      <li>Japanese</li>
+      <li>Spanish</li>
+      <li>Argentine</li>
+    </ol>
+
+    <p><strong>Bottom 3 Cuisines:</strong></p>
+    <ul>
+      <li>Indian</li>
+      <li>American</li>
+      <li>Russian</li>
+    </ul>
+
+    <h3>Favorites</h3>
+    <ul>
+      <li>
+        <strong>Books</strong>
+        <!-- Imagen al inicio de la categoría -->
+        <img src="icons/books.png" alt="Books Icon" style="height:22px; vertical-align:middle; margin-left:6px;"/>
+        <ul>
+          <li>The Bible</li>
+          <li>Narnia</li>
+          <li>Hunger Games</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Movies</strong>
+        <img src="d71fb8212fedbb6e77c3c8605ffddc62.jpg" alt="Movies Icon" style="height:22px; vertical-align:middle; margin-left:6px;"/>
+        <ul>
+          <li>Star Wars TESB</li>
+          <li>Batman The Dark Knight</li>
+          <li>Inception</li>
+        </ul>
+      </li>
+      <li>
+        <strong>TV Shows</strong>
+        <img src="icons/tv.png" alt="TV Icon" style="height:22px; vertical-align:middle; margin-left:6px;"/>
+        <ul>
+          <li>Ted Lasso</li>
+          <li>Full House</li>
+          <li>The Clone Wars</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <hr/>
+
+  <section id="heroes">
+    <h2>Heroes • Writers • Musicians</h2>
+    <table border="1" cellpadding="8" cellspacing="0" style="width:100%; text-align:left;">
+      <thead>
+        <tr>
+          <th>Picture</th>
+          <th>Name</th>
+          <th>Date of Birth / Date of Death</th>
+          <th>Profession</th>
+          <th>Achievements / Famous Work</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="heroes/hero1.jpg" alt="Hero 1" style="height:70px;"/></td>
+          <td>John Williams</td>
+          <td>Feb 8, 1932 — (alive)</td>
+          <td>Composer</td>
+          <td>Star Wars, Jaws, E.T., Indiana Jones</td>
+        </tr>
+        <tr>
+          <td><img src="heroes/hero2.jpg" alt="Hero 2" style="height:70px;"/></td>
+          <td>Hayao Miyazaki</td>
+          <td>Jan 5, 1941 — (alive)</td>
+          <td>Animator / Director</td>
+          <td>Spirited Away, Princess Mononoke</td>
+        </tr>
+        <tr>
+          <td><img src="heroes/hero3.jpg" alt="Hero 3" style="height:70px;"/></td>
+          <td>Annie Leibovitz</td>
+          <td>Oct 2, 1949 — (alive)</td>
+          <td>Photographer</td>
+          <td>Iconic celebrity portraiture</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr/>
+
+  <section id="schedule">
+    <h2>Weekly Schedule</h2>
+    <table id="schedule-table" border="1" cellpadding="6" cellspacing="0" style="width:100%;">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Start</th>
+          <th>End</th>
+          <th>Description</th>
+          <th>Place</th>
+          <th>Type</th>
+          <th>Notes</th>
+          <th>Flag</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Ejemplos -->
+        <tr>
+          <td>2025-09-01</td>
+          <td>09:00</td>
+          <td>11:00</td>
+          <td>Storyboard session</td>
+          <td>Studio</td>
+          <td>Professional</td>
+          <td>Scene 3 focus</td>
+          <td><span style="display:inline-block; width:16px; height:16px; background:#ffcc00; border:1px solid #999;"></span></td>
+          <td>🔴 Busy</td>
+        </tr>
+        <tr>
+          <td>2025-09-02</td>
+          <td>18:00</td>
+          <td>19:00</td>
+          <td>Piano practice</td>
+          <td>Home</td>
+          <td>Personal</td>
+          <td>Chopin Etudes</td>
+          <td><span style="display:inline-block; width:16px; height:16px; background:#66ff66; border:1px solid #999;"></span></td>
+          <td>🟢 Free</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Add to Weekly Schedule</h3>
+    <form id="schedule-form" onsubmit="addSchedule(event)">
+      <label>Date: <input type="date" name="date" required></label>
+      <label>Start: <input type="time" name="start" required></label>
+      <label>End: <input type="time" name="end" required></label>
+      <label>Activity: <input type="text" name="activity" required></label>
+      <label>Place: <input type="text" name="place" required></label>
+      <label>Type:
+        <select name="type" required>
+          <option>School</option>
+          <option>Personal</option>
+          <option>Professional</option>
+          <option>Familiar</option>
+          <option>Other</option>
+        </select>
+      </label>
+      <label>Notes: <input type="text" name="notes" /></label>
+      <label>Flag: <input type="color" name="flag" value="#00ccff"></label>
+      <label>Free? <input type="checkbox" name="free"></label>
+      <button type="submit">Add</button>
+    </form>
+  </section>
+
+  <hr/>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:diegoariaspz@gmail.com">diegoariaspz@gmail.com</a></p>
+    <p>Phone: 33 3142 5608</p>
+  </section>
+
+  <footer>
+    <p>&copy; Diego Arias 2025</p>
+  </footer>
+
+  <script>
+  
+    function addSchedule(e){
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      const table = document.getElementById('schedule-table').querySelector('tbody');
+
+      const tr = document.createElement('tr');
+
+      const date = data.get('date');
+      const start = data.get('start');
+      const end = data.get('end');
+      const activity = data.get('activity');
+      const place = data.get('place');
+      const type = data.get('type');
+      const notes = data.get('notes') || '';
+      const flag = data.get('flag') || '#cccccc';
+      const free = data.get('free') !== null;
+
+      tr.innerHTML = `
+        <td>${date}</td>
+        <td>${start}</td>
+        <td>${end}</td>
+        <td>${activity}</td>
+        <td>${place}</td>
+        <td>${type}</td>
+        <td>${notes}</td>
+        <td><span style="display:inline-block; width:16px; height:16px; background:${flag}; border:1px solid #999;"></span></td>
+        <td>${free ? '🟢 Free' : '🔴 Busy'}</td>
+      `;
+      table.appendChild(tr);
+      form.reset();
+    }
+  </script>
   
 </body>
 </html>
