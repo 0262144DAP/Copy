@@ -1,19 +1,79 @@
 const express = require("express");
+const path = require("path");
+
 const app = express();
-const https = require("https");
+const PORT = 3000;
 
-// TODO: configure the express server
+app.use(express.static(path.join(__dirname, "public"))); 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-const longContent =
-  "Lacus vel facilisis volutpat est velit egestas dui id ornare. Semper auctor neque vitae tempus quam. Sit amet cursus sit amet dictum sit amet justo. Viverra tellus in hac habitasse. Imperdiet proin fermentum leo vel orci porta. Donec ultrices tincidunt arcu non sodales neque sodales ut. Mattis molestie a iaculis at erat pellentesque adipiscing. Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Odio euismod lacinia at quis risus sed vulputate odio ut. Cursus mattis molestie a iaculis at erat pellentesque adipiscing.";
+app.set("view engine", "ejs");
 
+let currentUser = null;
 let posts = [];
-let name;
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/html/index.html");
+    res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
-app.listen(3000, (err) => {
-  console.log("Listening on port 3000");
+app.get("/login", (req, res) => {
+    const { name } = req.query;
+    currentUser = name;
+    res.send(`Hello ${name}! (GET - NOT SECURE)`);
 });
+
+app.post("/login", (req, res) => {
+    const { name } = req.body;
+    currentUser = name;
+    res.render("test", { name: currentUser });
+});
+
+
+app.get("/home", (req, res) => {
+    if (!currentUser) {
+        return res.redirect("/");
+    }
+
+    res.render("home", {
+        name: currentUser,
+        posts: posts
+    });
+});
+
+
+app.post("/add-post", (req, res) => {
+    const { title, content } = req.body;
+
+    posts.push({
+        id: Date.now(),
+        title,
+        content
+    });
+
+    res.redirect("/home");
+});
+
+
+app.get("/post/:id", (req, res) => {
+    if (!currentUser) return res.redirect("/");
+
+    const post = posts.find(p => p.id == req.params.id);
+    if (!post) return res.send("Post not found");
+
+    res.render("post", { post });
+});
+
+
+app.post("/post/:id/edit", (req, res) => {
+    const post = posts.find(p => p.id == req.params.id);
+    post.content = req.body.content;
+    res.redirect("/home");
+});
+
+app.post("/post/:id/delete", (req, res) => {
+    posts = posts.filter(p => p.id != req.params.id);
+    res.redirect("/home");
+});
+
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
